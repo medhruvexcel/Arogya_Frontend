@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arogya Scan</title>
+    <style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #00A6FB;
+  --primary-color-dark: #0582CA;
+  --primary-color-light: #ffffff;
+  --secondary-color: #000000;
+  --text-dark: #080808;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+  font-family:sans-serif,popin;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+/* Navbar */
+.nav__container {
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.nav__logo span {
+  color: var(--secondary-color);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.link a {
+  padding: 0.5rem;
+  color:  var(--primary-color);
+  text-decoration: none;
+}
+
+.link a:hover {
+  color: #000000;
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+h2 {
+    color: #333;
+
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#uploadSection, #liveScanSection {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    margin-top: 20px;
+    color: #333;
+}
+
+p#result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff5733;
+}
+
+
+/* Footer */
+/* .footer {
+    background-color: #00b7ff;
+    margin-top: 20px;
+
+  }
+
+  .footer__container {
+    display: grid;
+    grid-template-columns: 300px repeat(3, 1fr);
+  } */
+
+  .footer {
+    background-color: #00b7ff;
+    margin-top: 120px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.footer__container {
+    display: grid;
+    grid-template-columns: 300px repeat(3, 1fr);
+    max-width: 1200px; /* Optional: controls content width */
+    width: 100%;
+    margin: 0 auto; /* Centers the content */
+    padding: 20px;
+}
+
+
+  .footer__col h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .footer__col h3 span {
+    color: var(--secondary-color);
+  }
+
+  .footer__col h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .footer__col p {
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .footer__col p:hover {
+    color: #ffffff;
+  }
+
+  .footer__col i {
+    color: #ffffff;
+  }
+
+  /* Responsive Design */
+  @media (width < 900px) {
+    .footer__container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width < 780px) {
+    .nav__links {
+      display: none;
+    }
+  }
+
+  @media (width < 600px) {
+    .footer__container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+     <header>
+        <nav class="section__container nav__container">
+          <div class="nav__logo">Arogya<span>Connect</span></div>
+          <ul class="nav__links">
+            <li class="link"><a href="index.html">Home</a></li>
+            <li class="link"><a href="chatbot.html">ChatBot</a></li>
+            <li class="link"><a href="neardoc.html">Nearby</a></li>
+            <li class="link"><a href="index.html">Whatsapp Support</a></li>
+          </ul>
+          <button class="btn">Contact Us</button>
+        </nav>
+      </header>
+
+
+    <h2>Arogya Scan</h2>
+
+    <!-- Buttons to Toggle Features -->
+    <button onclick="showUpload()">Upload</button>
+    <button onclick="showLiveScan()">Live Scan</button>
+
+    <br><br>
+
+    <!-- Upload Section -->
+    <div id="uploadSection" style="display:none;">
+        <input type="file" id="fileInput" accept="image/*" onchange="previewUploadImage()">
+        <br><br>
+        <div class="image-container">
+            <img id="uploadedImage" style="display:none;">
+        </div>
+        <br>
+        <button onclick="uploadImage()">Upload Image</button>
+        <button id="reUploadBtn" onclick="resetUpload()" style="display:none;">Re-Upload</button>
+    </div>
+
+    <!-- Live Scan Section -->
+    <div id="liveScanSection" style="display:none;">
+        <video id="video" autoplay></video>
+        <br>
+        <button onclick="captureAndSend()">Capture & Scan</button>
+        <button id="reScanBtn" onclick="resetScan()" style="display:none;">Re-Scan</button>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <br>
+        <div class="image-container">
+            <img id="capturedImage" style="display:none;">
+        </div>
+    </div>
+
+    <h3>Diagnosis:</h3>
+    <p id="result"></p>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <h3>Arogya<span>Connect</span></h3>
+          </div>
+          <div class="footer__col">
+            <h4>About Us</h4>
+            <p>Home</p>
+            <p>About Us</p>
+            <p>Work With Us</p>
+            <p>Our Blog</p>
+            <p>Terms & Conditions</p>
+          </div>
+          <div class="footer__col">
+            <h4>Services</h4>
+            <p>Search Terms</p>
+            <p>Advance Search</p>
+            <p>Privacy Policy</p>
+            <p>Suppliers</p>
+            <p>Our Stores</p>
+          </div>
+          <div class="footer__col">
+            <h4>Contact Us</h4>
+            <p><i class="ri-map-pin-2-fill"></i> 123, London Bridge Street, London</p>
+            <p><i class="ri-mail-fill"></i> support@care.com</p>
+            <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+          </div>
+        </div>
+      </footer>
+
+    <script>
+        let videoStream = null; // Store camera stream
+
+        function showUpload() {
+            document.getElementById("uploadSection").style.display = "block";
+            document.getElementById("liveScanSection").style.display = "none";
+            document.getElementById("result").innerText = "";
+
+            if (videoStream) {
+                videoStream.getTracks().forEach(track => track.stop());
+                videoStream = null;
+            }
+        }
+
+        function showLiveScan() {
+            document.getElementById("uploadSection").style.display = "none";
+            document.getElementById("liveScanSection").style.display = "block";
+            document.getElementById("result").innerText = "";
+            openCamera();
+        }
+
+        function previewUploadImage() {
+            const file = document.getElementById("fileInput").files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.getElementById("uploadedImage");
+                    img.src = e.target.result;
+                    img.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function uploadImage() {
+            const fileInput = document.getElementById("fileInput").files[0];
+            if (!fileInput) {
+                alert("Please select an image file.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput);
+
+            try {
+                const response = await fetch("https://arogya-health-bot.onrender.com/analyze-upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await response.json();
+                document.getElementById("result").innerText = processDiagnosis(data.Diagnosis);
+                document.getElementById("reUploadBtn").style.display = "block"; // Show Re-Upload button
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        function resetUpload() {
+            document.getElementById("fileInput").value = "";
+            document.getElementById("uploadedImage").style.display = "none";
+            document.getElementById("result").innerText = "";
+            document.getElementById("reUploadBtn").style.display = "none";
+        }
+
+        async function openCamera() {
+            try {
+                videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+                document.getElementById("video").srcObject = videoStream;
+            } catch (error) {
+                console.error("Error accessing camera:", error);
+            }
+        }
+
+        async function captureAndSend() {
+            const video = document.getElementById("video");
+            const canvas = document.getElementById("canvas");
+            const context = canvas.getContext("2d");
+
+            // Capture Image
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Convert to base64 and display image
+            const imageData = canvas.toDataURL("image/jpeg");
+            const img = document.getElementById("capturedImage");
+            img.src = imageData;
+            img.style.display = "block";
+
+            // Send to API
+            try {
+                const response = await fetch("https://arogya-health-bot.onrender.com/analyze-live", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ image: imageData.split(",")[1] })
+                });
+
+                const data = await response.json();
+                document.getElementById("result").innerText = processDiagnosis(data.Diagnosis);
+                document.getElementById("reScanBtn").style.display = "block";
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        function resetScan() {
+            document.getElementById("capturedImage").style.display = "none";
+            document.getElementById("result").innerText = "";
+            document.getElementById("reScanBtn").style.display = "none";
+        }
+
+        function processDiagnosis(diagnosis) {
+            return diagnosis.includes("Normal Eye Condition") ? "No disease detected." : diagnosis;
+        }
+    </script>
+</body>
+</html>

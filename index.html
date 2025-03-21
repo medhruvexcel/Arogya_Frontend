@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <title>Arogyaconnect</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #00A6FB;
+  --primary-color-dark: #0582CA;
+  --primary-color-light: #ffffff;
+  --secondary-color: #000000;
+  --text-dark: #080808;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+/* INTRO OVERLAY */
+.intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00A6FB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeOut 0.5s ease-in-out 0.5s forwards;
+}
+
+.intro-text {
+  font-size: 2.5rem;
+  color: white;
+  opacity: 1;
+  animation: textFadeOut 1.2s ease-in-out 1.2s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+@keyframes textFadeOut {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
+
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__header {
+  margin-top: 10px;
+  margin-bottom:40px ;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 177, 247, 0.9),
+      rgba(74, 198, 255, 0.7)
+    ),
+    url("https://media.istockphoto.com/id/1296963883/photo/online-doctor-telemedicine-future-technology-trend-patient-consult-doctor-get-prescription.jpg?s=612x612&w=0&k=20&c=ZhTBVg5OAmGIZhwvSt8oVD3DyQ0o_4LbySGqlyNrznA=");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.nav__container {
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.nav__logo span {
+  color: var(--secondary-color);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.link a {
+  padding: 0.5rem;
+  color: var(--primary-color-light);
+}
+
+.link a:hover {
+  color: #000000;
+}
+
+.header__container {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.header__container h1 {
+  margin-bottom: 0.5rem;
+  max-width: 800px;
+  font-size: 3.5rem;
+  line-height: 4rem;
+  color: var(--white);
+}
+
+.header__container h2 {
+  margin-bottom: 1rem;
+  max-width: 800px;
+  font-style: italic;
+  font-size: 2 rem;
+  line-height: 4rem;
+  color: var(--white);
+}
+
+.header__container p {
+  margin-top: 40px;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  color: var(--primary-color-light);
+}
+
+
+.service__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.service__header__content p {
+  max-width: 600px;
+  color: var(--text-light);
+}
+
+.service__btn {
+  padding: 0.75rem 1rem;
+  outline: none;
+  font-size: 1rem;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  border-radius: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.service__btn:hover {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+.service__grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.service__card {
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1; /* Keep all cards equal initially */
+}
+
+.service__card:hover {
+  transform: scale(1.1); /* Increases size */
+  box-shadow: 0px 0px 20px rgba(0, 166, 251, 0.7);
+  z-index: 2;
+}
+
+
+
+.service__card span {
+  display: inline-block;
+  margin-bottom: 5rem;
+  padding: 15px 30px;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  background-color: var(--primary-color-light);
+  border-radius: 100%;
+  transition: 0.3s;
+}
+
+.service__card h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.service__card p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.service__card a {
+  color: var(--primary-color);
+}
+
+.service__card a:hover {
+  color: var(--primary-color-dark);
+}
+
+.service__card:hover span {
+  color: var(--primary-color-light);
+  background-color: var(--primary-color);
+}
+
+.about__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.about__content p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.about__image img {
+  max-width: 400px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.why__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.why__image img {
+  max-width: 400px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.why__content p {
+  color: var(--text-light);
+}
+
+.why__grid {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 80px auto;
+  gap: 2rem;
+}
+
+.why__grid span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.why__grid h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.why__grid p {
+  color: var(--text-light);
+}
+
+
+
+
+.footer {
+ background-color: #00b7ff;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 300px repeat(3, 1fr);
+
+}
+
+.footer__col h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer__col h3 span {
+  color: var(--secondary-color);
+}
+
+.footer__col h4 {
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer__col p {
+  margin-bottom: 2 px;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer__col p:hover {
+  color: #ffffff;
+}
+
+.footer__col i {
+  color: #ffffff;
+}
+
+.footer__bar {
+  background-color: #ffffff;
+}
+
+.footer__bar__content {
+  max-width: var(--max-width);
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.footer__bar__content p {
+  font-size: 0.8rem;
+  color: var(--white);
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+@media (width < 900px) {
+  .service__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .about__image {
+    grid-area: 1/1/2/2;
+  }
+
+  .about__content {
+    text-align: center;
+  }
+
+  .why__container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .why__content {
+    text-align: center;
+  }
+
+  .why__grid {
+    text-align: left;
+  }
+
+  .doctors__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width < 780px) {
+  .nav__links {
+    display: none;
+  }
+
+  .header__container {
+    flex-direction: column;
+  }
+}
+
+@media (width < 600px) {
+  .service__header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .why__grid {
+    column-gap: 1rem;
+  }
+
+  .doctors__header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .doctors__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer__bar__content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+      </style>
+  </head>
+  <body class="intro-animation">
+
+    <!-- INTRO ANIMATION OVERLAY -->
+    <div class="intro-overlay">
+      <h1 class="intro-text">Welcome to Arogyaconnect</h1>
+    </div>
+
+    <header>
+      <nav class="section__container nav__container">
+        <div class="nav__logo">Arogya<span>Connect</span></div>
+        <ul class="nav__links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li class="link"><a href="#about">About Us</a></li>
+          <li class="link"><a href="index.html#service">Services</a></li>
+        </ul>
+        <button class="btn">Contact Us</button>
+      </nav>
+      <div class="section__container header__container" id="home">
+        <div class="header__content">
+          <h1 >ArogyaConnect</h1>
+           <h2>AI Driven Disease Diagnosis And Medical Consultancy Platform</h2>
+           <p>Connecting healthcare providers and patients for seamless access, efficient consultations, reliable medical services, and improved health outcomes.</p>
+          <button class="btn"><a href="#service" style="color: white;">See Services</a></button>
+        </div>
+      </div>
+    </header>
+
+    <section class="section__container service__container" id="service">
+      <div class="service__header">
+        <div class="service__header__content">
+          <h2 class="section__header">Our Expertise</h2>
+        </div>
+      </div>
+      <div class="service__grid">
+
+
+        <div class="service__card">
+          <a href="chatbot.html" target="_blank">
+          <span><i class="ri-chat-1-line"></i></span>
+          <h4>ChatBot</h4>
+          <p>"Smart, Fast, and Reliable AI Chatbot."</p>
+          </a>
+        </div>
+
+
+        <div class="service__card">
+          <a href="scan.html" target="_blank">
+          <span><i class="ri-file-search-line"></i></span>
+          <h4>Live Scan</h4>
+          <p>"Fast, Secure, and Reliable Live Scan."</p>
+        </a>
+        </div>
+
+
+        <div class="service__card">
+          <a href="neardoc.html" target="_blank">
+          <span><i class="ri-hospital-line"></i></span>
+          <h4>Nearby Doctors</h4>
+          <p>"Find Nearby Doctors Quickly"</p>
+         </a>
+        </div>
+        <div class="service__card">
+          <a href="index.html" target="_blank">
+          <span><i class="ri-whatsapp-line"></i></span>
+          <h4>Whatsapp</h4>
+          <p>"Quick, Secure Whatsapp Support."</p>
+            <p> " Feature coming soon" </p>
+         </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h3>Arogya<span>Connect</span></h3>
+        </div>
+        <div class="footer__col">
+          <h4>About Us</h4>
+          <p>Home</p>
+          <p>About Us</p>
+          <p>Work With Us</p>
+          <p>Our Blog</p>
+          <p>Terms & Conditions</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <p>Search Terms</p>
+          <p>Advance Search</p>
+          <p>Privacy Policy</p>
+          <p>Suppliers</p>
+          <p>Our Stores</p>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <p><i class="ri-map-pin-2-fill"></i> 123, London Bridge Street, London</p>
+          <p><i class="ri-mail-fill"></i> support@care.com</p>
+          <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    document.body.style.opacity = "0.7";
+});
+
+    </script>
+  </body>
+</html>

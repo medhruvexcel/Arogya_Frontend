@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: mywebserver
+    ports:
+      - "8081:80"
+    volumes:
+      - ./chatbot.html:/usr/share/nginx/html/chatbot.html:ro
+      - ./Image.html:/usr/share/nginx/html/Image.html:ro
+      - ./doc.html:/usr/share/nginx/html/doc.html:ro
+      - ./indexxx.html:/usr/share/nginx/html/index.html:ro
+    restart: always

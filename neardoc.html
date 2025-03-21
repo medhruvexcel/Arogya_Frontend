@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+
+:root {
+  --primary-color: #00A6FB;
+  --primary-color-dark: #0582CA;
+  --primary-color-light: #ffffff;
+  --secondary-color: #000000;
+  --text-dark: #080808;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  padding: 5rem 1rem;
+}
+
+
+/* Navbar */
+.nav__container {
+  padding: 2rem 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.nav__logo span {
+  color: var(--secondary-color);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.link a {
+  padding: 0.5rem;
+  color:  var(--primary-color);
+  text-decoration: none;
+}
+
+.link a:hover {
+  color: #000000;
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+    background-color: #f4f4f9;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#location {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#map {
+    height: 400px;
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#output {
+    margin-top: 20px;
+}
+
+.place {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px auto;
+    width: 50%;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    #map {
+        width: 100%;
+    }
+
+    .place {
+        width: 80%;
+    }
+}
+
+
+/* Footer */
+.footer {
+    background-color: #00b7ff;
+    margin-top: 60px;
+  }
+
+  .footer__container {
+    display: grid;
+    grid-template-columns: 300px repeat(3, 1fr);
+  }
+
+  .footer__col h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .footer__col h3 span {
+    color: var(--secondary-color);
+  }
+
+  .footer__col h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .footer__col p {
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .footer__col p:hover {
+    color: #ffffff;
+  }
+
+  .footer__col i {
+    color: #ffffff;
+  }
+
+  /* Responsive Design */
+  @media (width < 900px) {
+    .footer__container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width < 780px) {
+    .nav__links {
+      display: none;
+    }
+  }
+
+  @media (width < 600px) {
+    .footer__container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+    </style>
+</head>
+<body>
+      <!-- Navbar -->
+      <header>
+        <nav class="section__container nav__container">
+          <div class="nav__logo">Arogya<span>Connect</span></div>
+          <ul class="nav__links">
+            <li class="link"><a href="index.html">Home</a></li>
+            <li class="link"><a href="chatbot.html">ChatBot</a></li>
+            <li class="link"><a href="scan.html">Scan</a></li>
+            <li class="link"><a href="index.html">Whatsapp Support</a></li>
+          </ul>
+          <button class="btn">Contact Us</button>
+        </nav>
+      </header>
+
+
+ <h1>Find Nearby Medical Facilities </h1>
+
+<h2>Select State and City</h2>
+
+    <label for="state">State:</label>
+    <select id="state" onchange="loadCities()">
+        <option value="">Select State</option>
+    </select>
+
+    <label for="city">City:</label>
+    <select id="city">
+        <option value="">Select City</option>
+    </select>
+
+    <label for="placeType">Select Place Type:</label>
+    <select id="placeType">
+        <option value="hospital">Hospital</option>
+        <option value="Clinics">Clinics</option>
+        <option value="Doctors">Doctors</option>
+        <option value="pharmacy">Pharmacy</option>
+    </select>
+
+    <button onclick="getLatLong()">Get Latitude & Longitude</button>
+    <p id="result"></p>
+
+    <div id="map"></div>
+    <div id="output"></div>
+
+
+
+
+
+    <
+
+<!-- Footer -->
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h3>Arogya<span>Connect</span></h3>
+        </div>
+        <div class="footer__col">
+          <h4>About Us</h4>
+          <p>Home</p>
+          <p>About Us</p>
+          <p>Work With Us</p>
+          <p>Our Blog</p>
+          <p>Terms & Conditions</p>
+        </div>
+        <div class="footer__col">
+          <h4>Services</h4>
+          <p>Search Terms</p>
+          <p>Advance Search</p>
+          <p>Privacy Policy</p>
+          <p>Suppliers</p>
+          <p>Our Stores</p>
+        </div>
+        <div class="footer__col">
+          <h4>Contact Us</h4>
+          <p><i class="ri-map-pin-2-fill"></i> 123, London Bridge Street, London</p>
+          <p><i class="ri-mail-fill"></i> support@care.com</p>
+          <p><i class="ri-phone-fill"></i> (+012) 3456 789</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+
+           let map, userMarker, userLocation;
+let placeMarkers = [];
+
+async function loadStates() {
+    let response = await fetch('https://arogya-health-bot.onrender.com/get_states');
+    let data = await response.json();
+    console.log("States:", data);
+
+    let stateDropdown = document.getElementById('state');
+    stateDropdown.innerHTML = '<option value="">Select State</option>';
+
+    data.states.forEach(state => {
+        let option = document.createElement('option');
+        option.value = state;
+        option.textContent = state;
+        stateDropdown.appendChild(option);
+    });
+}
+
+async function loadCities() {
+    let state = document.getElementById('state').value;
+    let cityDropdown = document.getElementById('city');
+    cityDropdown.innerHTML = '<option value="">Select City</option>';
+
+    if (state) {
+        let response = await fetch(`https://arogya-health-bot.onrender.com/get_cities/${state}`);
+        let data = await response.json();
+        console.log("Cities for", state, ":", data);
+
+        data.cities.forEach(city => {
+            let option = document.createElement('option');
+            option.value = city;
+            option.textContent = city;
+            cityDropdown.appendChild(option);
+        });
+    }
+}
+
+async function getLatLong() {
+    let city = document.getElementById('city').value;
+    if (!city) {
+        document.getElementById('result').innerText = "Please select a city.";
+        return;
+    }
+
+    let response = await fetch(`https://arogya-health-bot.onrender.com/get_lat_long/${city}`);
+    let data = await response.json();
+
+    if (data.error) {
+        document.getElementById('result').innerText = "City not found.";
+    } else {
+        document.getElementById('result').innerText = `Latitude: ${data.lat}, Longitude: ${data.lon}`;
+        initMap(data.lat, data.lon);
+        getNearbyPlaces(data.lat, data.lon);
+    }
+}
+
+function initMap(lat, lon) {
+    if (!map) {
+        map = L.map('map').setView([lat, lon], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+    } else {
+        map.setView([lat, lon], 13);
+    }
+
+    // Remove previous user marker
+    if (userMarker) {
+        map.removeLayer(userMarker);
+    }
+
+    // Add green marker for user location
+    userMarker = L.marker([lat, lon], {
+        icon: L.icon({
+            iconUrl: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png', // Green marker for user
+            iconSize: [32, 32]
+        })
+    }).addTo(map).bindPopup("📍 Your Location").openPopup();
+}
+
+async function getNearbyPlaces(lat, lon) {
+    let placeType = document.getElementById("placeType").value;
+    let radius = 10000;
+
+    placeMarkers.forEach(marker => map.removeLayer(marker));
+    placeMarkers = [];
+
+    let response = await fetch(`https://arogya-health-bot.onrender.com/get-nearby-places?lat=${lat}&lon=${lon}&place_type=${placeType}&radius=${radius}`);
+    let data = await response.json();
+
+    let outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = "<h3>Nearby Places:</h3>";
+
+    if (data.places && data.places.length > 0) {
+        data.places.forEach(place => {
+            let marker = L.marker([place.lat, place.lon]).addTo(map)
+                .bindPopup(`${place.name} - ${place.distance} km`);
+            placeMarkers.push(marker);
+            outputDiv.innerHTML += `<div class="place"><span>${place.name}</span><span>${place.distance} km</span></div>`;
+        });
+    } else {
+        outputDiv.innerHTML += "<p>No nearby places found.</p>";
+    }
+}
+
+window.onload = loadStates;
+
+    </script>
+</body>
+</html>
