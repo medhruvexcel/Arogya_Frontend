@@ -3,9 +3,9 @@ FROM nginx:alpine
 
 # Copy indexxx.html to the default nginx directory
 COPY chatbot.html /usr/share/nginx/html/
-COPY Image.html /usr/share/nginx/html/
-COPY doc.html /usr/share/nginx/html/
-COPY indexxx.html /usr/share/nginx/html/index.html
+COPY scan.html /usr/share/nginx/html/
+COPY neardoc.html /usr/share/nginx/html/
+COPY index.html /usr/share/nginx/html/index.html
 
 ## Expose port 80
 EXPOSE 80
